@@ -3,6 +3,8 @@ import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import Loader from "../components/Loader";
 
+import Island from "../models/Island";
+
 const Home = () => {
   return (
     <section className="w-full h-screen relative">
@@ -13,7 +15,15 @@ const Home = () => {
           far: 1000,
         }}
       >
-        <Suspense fallback={<Loader />}></Suspense>
+        <Suspense fallback={<Loader />}>
+          <directionalLight />
+          <ambientLight />
+          <pointLight />
+          <spotLight />
+          <hemisphereLight />
+
+          <Island />
+        </Suspense>
       </Canvas>
     </section>
   );
